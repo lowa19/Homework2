@@ -17,7 +17,15 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
     @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b)
     {
-        myText.setText("Red Value = " + i);
+        if(seekBar.getId() == R.id.rSeekBar) {
+            myText.setText("Red Value = " + i);
+        }
+        else if(seekBar.getId() == R.id.gSeekBar) {
+            myText.setText("Green Value = " + i);
+        }
+        else if(seekBar.getId() == R.id.bSeekBar) {
+        myText.setText("Blue Value = " + i);
+    }
     }
 
     @Override
@@ -29,4 +37,5 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
     public void onStopTrackingTouch(SeekBar seekBar) {
 
     }
+
 }

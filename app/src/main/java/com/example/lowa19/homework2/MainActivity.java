@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+//TODO make click listeners for the surface view
+//TODO when the shape clicked it sets seekbars to correct RGB
+//TODO when seekbar is moved it updates the color of the shape
+//TODO set limits for the seekbar
+
 public class MainActivity extends AppCompatActivity {
-    myCustomPicture myPictureLayout;
+    myCustomPicture myPictureLayout; //surface view
     private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
     private TextView redText, greenText, blueText;
 
@@ -26,9 +31,20 @@ public class MainActivity extends AppCompatActivity {
         blueText = (TextView) findViewById(R.id.blueText);
 
         //register listeners
-        SeekBarListener myListener = new SeekBarListener(redText);
-        redSeekBar.setOnSeekBarChangeListener(myListener);
+        SeekBarListener myRedListener = new SeekBarListener(redText);
+        redSeekBar.setOnSeekBarChangeListener(myRedListener);
+        SeekBarListener myGreenListener = new SeekBarListener(greenText);
+        greenSeekBar.setOnSeekBarChangeListener(myGreenListener);
+        SeekBarListener myBlueListener = new SeekBarListener(blueText);
+        blueSeekBar.setOnSeekBarChangeListener(myBlueListener);
     }
 
+    public void changeColor()
+    {
+        int redVal = redSeekBar.getProgress();
+        int greenVal = greenSeekBar.getProgress();
+        int blueVal = blueSeekBar.getProgress();
+        //add code to set color of the geometric shape
+    }
 
 }
