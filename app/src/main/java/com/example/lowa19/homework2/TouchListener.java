@@ -10,6 +10,8 @@ import android.view.View;
 public class TouchListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        int xcoor = (int)motionEvent.getX();
+        int ycoor = (int)motionEvent.getY();
         return false;
     }
 }

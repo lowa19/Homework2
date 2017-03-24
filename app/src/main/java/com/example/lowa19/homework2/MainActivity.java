@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         blueText = (TextView) findViewById(R.id.blueText);
 
         //register listeners
+        TouchListener myTouchListener = new TouchListener();
+        myPictureLayout.setOnTouchListener(myTouchListener);
         SeekBarListener myRedListener = new SeekBarListener(redText);
         redSeekBar.setOnSeekBarChangeListener(myRedListener);
         SeekBarListener myGreenListener = new SeekBarListener(greenText);
@@ -42,10 +45,4 @@ public class MainActivity extends AppCompatActivity {
         SeekBarListener myBlueListener = new SeekBarListener(blueText);
         blueSeekBar.setOnSeekBarChangeListener(myBlueListener);
     }
-
-    public SeekBar getRedSeekBar()
-    {
-        return redSeekBar;
-    }
-
 }
