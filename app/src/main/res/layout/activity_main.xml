@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Red Value"
+                android:text="Red Value="
                 android:id="@+id/redText"
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white" />
