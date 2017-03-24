@@ -1,9 +1,13 @@
 package com.example.lowa19.homework2;
 
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import static android.graphics.Color.rgb;
 
 //TODO make click listeners for the surface view
 //TODO when the shape clicked it sets seekbars to correct RGB
@@ -39,12 +43,9 @@ public class MainActivity extends AppCompatActivity {
         blueSeekBar.setOnSeekBarChangeListener(myBlueListener);
     }
 
-    public void changeColor()
+    public SeekBar getRedSeekBar()
     {
-        int redVal = redSeekBar.getProgress();
-        int greenVal = greenSeekBar.getProgress();
-        int blueVal = blueSeekBar.getProgress();
-        //add code to set color of the geometric shape
+        return redSeekBar;
     }
 
 }
