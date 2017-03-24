@@ -8,7 +8,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     myCustomPicture myPictureLayout;
     private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
-    private TextView redText;
+    private TextView redText, greenText, blueText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +17,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(myPictureLayout);
         //setContentView(R.layout.activity_main);
 
+        //get references to views on GUI
         redSeekBar = (SeekBar) findViewById(R.id.rSeekBar);
         redText = (TextView) findViewById(R.id.redText);
-        redText.setText("Red Value = " + redSeekBar.getProgress());
+        greenSeekBar = (SeekBar)findViewById(R.id.gSeekBar);
+        greenText = (TextView) findViewById(R.id.greenText);
+        blueSeekBar = (SeekBar)findViewById(R.id.bSeekBar);
+        blueText = (TextView) findViewById(R.id.blueText);
 
-        //redSeekBar.setOnSeekBarChangeListener();
-
-
+        //register listeners
+        SeekBarListener myListener = new SeekBarListener(redText);
+        redSeekBar.setOnSeekBarChangeListener(myListener);
     }
+
+
 }
