@@ -1,6 +1,7 @@
 package com.example.lowa19.homework2;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 /**
@@ -9,16 +10,20 @@ import android.graphics.Paint;
 public class PenguinBody extends Shapes {
     private final int circleXY = 100;
     private final int circleRad = 50;
+    public Paint black_paintbrush_fill;
 
     public PenguinBody(String initName, Paint initPaint)
     {
-        super(intiName, initPaint);
-
+        super(initName, initPaint);
     }
 
     @Override
-    public void drawMe(Canvas canvas)
+    public void drawShape(Canvas canvas)
     {
-        canvas.drawCircle(100, 100, 50, shapePaint);
+        black_paintbrush_fill = new Paint();
+        black_paintbrush_fill.setColor(Color.BLACK);
+        black_paintbrush_fill.setStyle(Paint.Style.FILL);
+
+        canvas.drawCircle(circleXY, circleXY, circleRad, getShapePaint());
     }
 }

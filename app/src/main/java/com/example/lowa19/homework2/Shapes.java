@@ -1,5 +1,6 @@
 package com.example.lowa19.homework2;
 
+import android.graphics.Canvas;
 import android.graphics.Paint;
 
 /**
@@ -16,5 +17,20 @@ public class Shapes {
     public String getName()
     {
         return this.shapeName;
+    }
+
+    public Paint getShapePaint() {return this.shapePaint;}
+
+    public void setShapePaint(Paint paint)
+    {
+        this.shapePaint = paint;
+    }
+
+    public void drawShape(Canvas canvas)
+    {
+    }
+    public boolean isSelected(int x, int y)
+    {
+
     }
 }

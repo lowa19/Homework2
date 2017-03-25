@@ -57,4 +57,29 @@ public class MainActivity extends AppCompatActivity {
     {
         return this.blueSeekBar;
     }
+    public int getRedSeekBarValue()
+    {
+     return this.redSeekBar.getProgress();
+    }
+    public int getGreenSeekBarValue()
+    {
+        return this.greenSeekBar.getProgress();
+    }
+    public int getBlueSeekBarValue()
+    {
+        return this.blueSeekBar.getProgress();
+    }
+    public void setRedSeekBar(int i )
+    {
+        redSeekBar.setProgress(i);
+    }
+    public void setGreenSeekBar(int i )
+    {
+        greenSeekBar.setProgress(i);
+    }
+    public void setBlueSeekBar(int i )
+    {
+        blueSeekBar.setProgress(i);
+    }
+
 }
