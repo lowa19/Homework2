@@ -10,22 +10,21 @@ import android.widget.TextView;
 
 import static android.graphics.Color.rgb;
 
-//TODO make click listeners for the surface view
-//TODO when the shape clicked it sets seekbars to correct RGB
-//TODO when seekbar is moved it updates the color of the shape
-//TODO set limits for the seekbar
+//TODO make touch listeners for the surface view
+//TODO when the shape touched it sets seekbars to correct RGB
+//TODO when seekbar is moved it updates the color of the shapes
+//TODO set limits for the seekbar; 0-255
 
 public class MainActivity extends AppCompatActivity {
     myCustomPicture myPictureLayout; //surface view
     private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
-    private TextView redText, greenText, blueText;
+    private TextView redText, greenText, blueText, selectedElement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myPictureLayout = new myCustomPicture(this);
         setContentView(myPictureLayout);
-        //setContentView(R.layout.activity_main);
 
         //get references to views on GUI
         redSeekBar = (SeekBar) findViewById(R.id.rSeekBar);
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         greenText = (TextView) findViewById(R.id.greenText);
         blueSeekBar = (SeekBar)findViewById(R.id.bSeekBar);
         blueText = (TextView) findViewById(R.id.blueText);
+        selectedElement = (TextView)findViewById(R.id.currElement);
 
         //register listeners
         TouchListener myTouchListener = new TouchListener();
@@ -44,5 +44,17 @@ public class MainActivity extends AppCompatActivity {
         greenSeekBar.setOnSeekBarChangeListener(myGreenListener);
         SeekBarListener myBlueListener = new SeekBarListener(blueText);
         blueSeekBar.setOnSeekBarChangeListener(myBlueListener);
+    }
+    public SeekBar getRedSeekBar()
+    {
+        return this.redSeekBar;
+    }
+    public SeekBar getGreenSeekBar()
+    {
+        return this.greenSeekBar;
+    }
+    public SeekBar getBlueSeekBar()
+    {
+        return this.blueSeekBar;
     }
 }

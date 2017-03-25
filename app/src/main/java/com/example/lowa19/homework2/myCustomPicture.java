@@ -96,13 +96,13 @@ public class myCustomPicture extends SurfaceView {
         canvas.drawPath(rightFoot, yellow_paintbrush_fill);
     }
 
-    public Paint changeColor()
+    public Paint setCustomPaint()
     {
         Paint temp = new Paint();
-        //int redVal = redSeekBar().getProgress();
-        //int greenVal = greenSeekBar.getProgress();
-        //int blueVal = blueSeekBar.getProgress();
-        //temp.setColor(rgb(redVal, greenVal, blueVal));
+        int redVal = getRedSeekBar().getProgress();
+        int greenVal = greenSeekBar.getProgress();
+        int blueVal = blueSeekBar.getProgress();
+        temp.setColor(rgb(redVal, greenVal, blueVal));
         temp.setStyle(Paint.Style.FILL);
         return temp;
         //add code to set color of the geometric shape
