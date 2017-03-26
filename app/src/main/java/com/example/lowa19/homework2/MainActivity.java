@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         selectedElement = (TextView)findViewById(R.id.currElement);
 
         //register listeners
-        TouchListener myTouchListener = new TouchListener();
+        TouchListener myTouchListener = new TouchListener(this);
         myPictureLayout.setOnTouchListener(myTouchListener);
         SeekBarListener myRedListener = new SeekBarListener(redText);
         redSeekBar.setOnSeekBarChangeListener(myRedListener);

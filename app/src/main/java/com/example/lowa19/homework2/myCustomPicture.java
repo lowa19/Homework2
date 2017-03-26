@@ -28,8 +28,6 @@ public class myCustomPicture extends SurfaceView {
     public void onDraw(Canvas canvas) {
 
 
-
-
         white_paintbrush_fill = new Paint();
         white_paintbrush_fill.setColor(Color.WHITE);
         white_paintbrush_fill.setStyle(Paint.Style.FILL);
@@ -41,28 +39,7 @@ public class myCustomPicture extends SurfaceView {
 
 
         //Penguin nose
-        nose = new Path();
-        nose.moveTo(145, 145);
-        nose.lineTo(155, 145);
-        nose.moveTo(155, 145);
-        nose.lineTo(160, 160);
-        nose.moveTo(160, 160);
-        nose.lineTo(145, 145);
-        canvas.drawPath(nose, yellow_paintbrush_fill);
-
-        //Penguin left arm
-
-
-        //Penguin right arm
-
-
-        //Penguin left foot
-
-
-        //Penguin right foot
-
     }
-
     public Paint setCustomPaint()
     {
         Paint temp = new Paint();

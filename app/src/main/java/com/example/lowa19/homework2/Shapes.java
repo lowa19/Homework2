@@ -29,8 +29,19 @@ public class Shapes {
     public void drawShape(Canvas canvas)
     {
     }
+    public Shapes getShape(int x, int y)
+    {
+        if(isSelected(x,y))
+        {
+            return this;
+        }
+        else
+        {
+            return null;
+        }
+    }
     public boolean isSelected(int x, int y)
     {
-
+        return true;
     }
 }

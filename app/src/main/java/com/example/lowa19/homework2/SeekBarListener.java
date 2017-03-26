@@ -26,6 +26,7 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
         else if(seekBar.getId() == R.id.bSeekBar) {
         myText.setText("Blue Value = " + i);
         }
+
     }
 
     @Override
