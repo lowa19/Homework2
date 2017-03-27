@@ -26,21 +26,21 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
     {
         if(seekBar.getId() == R.id.rSeekBar) {
             changedPaint = new Paint();
-            changedPaint.setARGB(255, currentShape.getShapeRed() + i, currentShape.getShapeGreen(), currentShape.getShapeBlue());
+            changedPaint.setARGB(255, i, currentShape.getShapeGreen(), currentShape.getShapeBlue());
             myActivity.getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Red Value = " + i);
             myActivity.getMyPictureLayout().invalidate();
         }
         else if(seekBar.getId() == R.id.gSeekBar) {
             changedPaint = new Paint();
-            changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen() + i, currentShape.getShapeBlue());
+            changedPaint.setARGB(255, currentShape.getShapeRed(), i, currentShape.getShapeBlue());
             myActivity.getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Green Value = " + i);
             myActivity.getMyPictureLayout().invalidate();
         }
         else if(seekBar.getId() == R.id.bSeekBar) {
             changedPaint = new Paint();
-            changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen(), currentShape.getShapeBlue() + i);
+            changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen(), i);
             myActivity.getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Blue Value = " + i);
             myActivity.getMyPictureLayout().invalidate();
