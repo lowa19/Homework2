@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import static android.graphics.Color.rgb;
 
-//TODO make touch listeners for the surface view
 //TODO when the shape touched it sets seekbars to correct RGB
 //TODO when seekbar is moved it updates the color of the shapes
 //TODO set limits for the seekbar; 0-255
@@ -44,6 +43,26 @@ public class MainActivity extends AppCompatActivity {
         greenSeekBar.setOnSeekBarChangeListener(myGreenListener);
         SeekBarListener myBlueListener = new SeekBarListener(blueText);
         blueSeekBar.setOnSeekBarChangeListener(myBlueListener);
+    }
+    public myCustomPicture getMyPictureLayout()
+    {
+        return this.myPictureLayout;
+    }
+    public TextView getSelectedElementText()
+    {
+        return this.selectedElement;
+    }
+    public TextView getRedText()
+    {
+        return this.redText;
+    }
+    public TextView getGreenText()
+    {
+        return this.greenText;
+    }
+    public TextView getBlueText()
+    {
+        return this.blueText;
     }
     public SeekBar getRedSeekBar()
     {

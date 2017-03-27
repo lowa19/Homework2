@@ -10,7 +10,7 @@ import android.graphics.Paint;
 public class PenguinBody extends Shapes {
     private final int circleXY = 100;
     private final int circleRad = 50;
-    public Paint black_paintbrush_fill;
+
 
     public PenguinBody(String initName, Paint initPaint)
     {
@@ -20,10 +20,6 @@ public class PenguinBody extends Shapes {
     @Override
     public void drawShape(Canvas canvas)
     {
-        black_paintbrush_fill = new Paint();
-        black_paintbrush_fill.setColor(Color.BLACK);
-        black_paintbrush_fill.setStyle(Paint.Style.FILL);
-
         canvas.drawCircle(circleXY, circleXY, circleRad, getShapePaint());
     }
 }

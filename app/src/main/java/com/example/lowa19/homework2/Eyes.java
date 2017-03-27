@@ -23,21 +23,4 @@ public class Eyes extends Shapes {
         canvas.drawCircle(xLeft, yCoor, radius, getShapePaint()); //left eye
         canvas.drawCircle(xRight, yCoor, radius, getShapePaint()); //right eye
     }
-
-    @Override
-    public boolean isSelected(int x, int y)
-    {
-        if(x>xLeft && x<xLeft+radius && y>yCoor && y<yCoor+radius)
-        {
-            return true;
-        }
-        else if (x>xRight && x<xRight+radius && y>yCoor && y<yCoor+radius)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

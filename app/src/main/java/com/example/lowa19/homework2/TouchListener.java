@@ -1,7 +1,9 @@
 package com.example.lowa19.homework2;
 
+import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.View;
+
 
 /**
  * Created by kaleolow on 3/24/17.
@@ -18,40 +20,21 @@ public class TouchListener implements View.OnTouchListener {
         int xcoor = (int)motionEvent.getX();
         int ycoor = (int)motionEvent.getY();
         int r,g,b;
-        if(eyeTouch(xcoor, ycoor))
-        {
-            //get shape paint
-            //call getRed(), getGreen(), getBlue(); on the paint and set to r,g,b
-            // example r = myActivity.getShape().getShapePaint.getRed();
-            r = 1;
-            g = 1;
-            b = 1;
-            myActivity.setRedSeekBar(r);
-            myActivity.setGreenSeekBar(g);
-            myActivity.setBlueSeekBar(b);
-        }
+        Shapes currentShape;
+        currentShape = myActivity.getMyPictureLayout().getShape(xcoor,ycoor);
+        r = currentShape.getShapeRed();
+        g = currentShape.getShapeGreen();
+        b = currentShape.getShapeBlue();
+        myActivity.getSelectedElementText().setText(currentShape.getName()); //display name of body part tapped
+        myActivity.getRedText().setText(Integer.toString(r));
+        myActivity.getGreenText().setText(Integer.toString(g));
+        myActivity.getBlueText().setText(Integer.toString(b));
+        myActivity.setRedSeekBar(r);
+        myActivity.setGreenSeekBar(g);
+        myActivity.setBlueSeekBar(b);
 
         return false;
     }
 
-    public boolean eyeTouch(int x, int y)
-    {
-        int yCoor= 125;
-        int radius = 5;
-        int xLeft = 125;
-        int xRight = 175;
 
-        if(x>xLeft && x<xLeft+radius && y>yCoor && y<yCoor+radius)
-        {
-            return true;
-        }
-        else if (x>xRight && x<xRight+radius && y>yCoor && y<yCoor+radius)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

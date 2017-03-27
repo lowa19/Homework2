@@ -1,6 +1,7 @@
 package com.example.lowa19.homework2;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 /**
@@ -26,22 +27,20 @@ public class Shapes {
         this.shapePaint = paint;
     }
 
+    public int getShapeRed()
+    {
+        return Color.red(shapePaint.getColor());
+    }
+    public int getShapeGreen()
+    {
+        return Color.green(shapePaint.getColor());
+    }
+    public int getShapeBlue()
+    {
+        return Color.blue(shapePaint.getColor());
+    }
+
     public void drawShape(Canvas canvas)
     {
-    }
-    public Shapes getShape(int x, int y)
-    {
-        if(isSelected(x,y))
-        {
-            return this;
-        }
-        else
-        {
-            return null;
-        }
-    }
-    public boolean isSelected(int x, int y)
-    {
-        return true;
     }
 }

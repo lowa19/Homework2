@@ -11,8 +11,8 @@ import android.graphics.Path;
  */
 
 public class Beak extends Shapes {
+
     Path nose;
-    public Paint yellow_paintbrush_fill;
 
     public Beak(String initName , Paint initPaint)
     {
@@ -22,10 +22,6 @@ public class Beak extends Shapes {
     @Override
     public void drawShape(Canvas canvas)
     {
-        yellow_paintbrush_fill = new Paint();
-        yellow_paintbrush_fill.setColor(Color.YELLOW);
-        yellow_paintbrush_fill.setStyle(Paint.Style.FILL);
-
         nose = new Path();
         nose.moveTo(145, 145);
         nose.lineTo(155, 145);
