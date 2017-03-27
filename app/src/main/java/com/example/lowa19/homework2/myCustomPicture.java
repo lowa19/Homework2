@@ -184,9 +184,9 @@ public class myCustomPicture extends SurfaceView {
     }
     public boolean bodyTouch(int x, int y) //check body last because bottom most layer on drawing
     {
-        int yCoor= 145;
+        int yCoor= 150;
         int radius = 50;
-        int xCoor = 145;
+        int xCoor = 150;
         if(x>xCoor-radius && x<xCoor+radius && y>yCoor-radius && y<yCoor+radius)
         {
             return true;

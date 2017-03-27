@@ -8,7 +8,7 @@ import android.graphics.Paint;
  * Created by lowa19 on 3/25/2017.
  */
 public class PenguinBody extends Shapes {
-    private final int circleXY = 100;
+    private final int circleXY = 150;
     private final int circleRad = 50;
 
 
