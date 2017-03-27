@@ -12,11 +12,13 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
     private TextView myText;
     private Paint changedPaint;
     private Shapes currentShape;
+    private MainActivity myActivity;
 
     public SeekBarListener(MainActivity activity, TextView initText)
     {
         this.myText = initText;
         currentShape = activity.getCurrentShape();
+        myActivity = activity;
     }
 
     @Override
@@ -25,20 +27,23 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
         if(seekBar.getId() == R.id.rSeekBar) {
             changedPaint = new Paint();
             changedPaint.setARGB(255, currentShape.getShapeRed() + i, currentShape.getShapeGreen(), currentShape.getShapeBlue());
-            currentShape.setShapePaint(changedPaint);
+            myActivity.getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Red Value = " + i);
+            myActivity.getMyPictureLayout().invalidate();
         }
         else if(seekBar.getId() == R.id.gSeekBar) {
             changedPaint = new Paint();
             changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen() + i, currentShape.getShapeBlue());
-            currentShape.setShapePaint(changedPaint);
+            myActivity.getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Green Value = " + i);
+            myActivity.getMyPictureLayout().invalidate();
         }
         else if(seekBar.getId() == R.id.bSeekBar) {
             changedPaint = new Paint();
             changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen(), currentShape.getShapeBlue() + i);
-            currentShape.setShapePaint(changedPaint);
+            myActivity.getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Blue Value = " + i);
+            myActivity.getMyPictureLayout().invalidate();
         }
 
     }

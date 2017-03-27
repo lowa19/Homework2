@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
     private TextView redText, greenText, blueText, selectedElement;
     private Shapes currentShape = null;
+    private int currShapeX, currShapeY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,13 +102,15 @@ public class MainActivity extends AppCompatActivity {
     {
         blueSeekBar.setProgress(i);
     }
-    public void setCurrentShape(Shapes shape)
+    public void setCurrentShape(Shapes shape, int x, int y)
     {
+        this.currShapeX = x;
+        this.currShapeY = y;
         this.currentShape = shape;
     }
     public Shapes getCurrentShape()
     {
-        return this.currentShape;
+        return this.myPictureLayout.getShape(currShapeX, currShapeY);
     }
 
 }

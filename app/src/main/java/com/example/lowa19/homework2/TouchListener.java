@@ -32,7 +32,7 @@ public class TouchListener implements View.OnTouchListener {
         myActivity.setRedSeekBar(r);
         myActivity.setGreenSeekBar(g);
         myActivity.setBlueSeekBar(b);
-        myActivity.setCurrentShape(currentShape);
+        myActivity.setCurrentShape(myActivity.getMyPictureLayout().getShape(xcoor, ycoor), xcoor, ycoor);
         return false;
     }
 
