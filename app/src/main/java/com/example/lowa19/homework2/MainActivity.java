@@ -10,22 +10,18 @@ import android.widget.TextView;
 
 import static android.graphics.Color.rgb;
 
-//TODO when the shape touched it sets seekbars to correct RGB
-//TODO when seekbar is moved it updates the color of the shapes
-//TODO set limits for the seekbar; 0-255
-
 public class MainActivity extends AppCompatActivity {
     myCustomPicture myPictureLayout; //surface view
     private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
     private TextView redText, greenText, blueText, selectedElement;
-    private Shapes currentShape = null;
+    private Shapes currentShape;
     private int currShapeX, currShapeY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         myPictureLayout = new myCustomPicture(this);
-        setContentView(myPictureLayout);
 
         //get references to views on GUI
         redSeekBar = (SeekBar) findViewById(R.id.rSeekBar);
@@ -46,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         SeekBarListener myBlueListener = new SeekBarListener(this,blueText);
         blueSeekBar.setOnSeekBarChangeListener(myBlueListener);
     }
+
+    //GETTER AND SETTER METHODS
     public myCustomPicture getMyPictureLayout()
     {
         return this.myPictureLayout;
@@ -65,30 +63,6 @@ public class MainActivity extends AppCompatActivity {
     public TextView getBlueText()
     {
         return this.blueText;
-    }
-    public SeekBar getRedSeekBar()
-    {
-        return this.redSeekBar;
-    }
-    public SeekBar getGreenSeekBar()
-    {
-        return this.greenSeekBar;
-    }
-    public SeekBar getBlueSeekBar()
-    {
-        return this.blueSeekBar;
-    }
-    public int getRedSeekBarValue()
-    {
-     return this.redSeekBar.getProgress();
-    }
-    public int getGreenSeekBarValue()
-    {
-        return this.greenSeekBar.getProgress();
-    }
-    public int getBlueSeekBarValue()
-    {
-        return this.blueSeekBar.getProgress();
     }
     public void setRedSeekBar(int i )
     {
