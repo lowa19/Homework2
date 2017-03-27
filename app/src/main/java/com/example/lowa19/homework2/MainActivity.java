@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     myCustomPicture myPictureLayout; //surface view
     private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
     private TextView redText, greenText, blueText, selectedElement;
+    private Shapes currentShape = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
         //register listeners
         TouchListener myTouchListener = new TouchListener(this);
         myPictureLayout.setOnTouchListener(myTouchListener);
-        SeekBarListener myRedListener = new SeekBarListener(redText);
+        SeekBarListener myRedListener = new SeekBarListener(this,redText);
         redSeekBar.setOnSeekBarChangeListener(myRedListener);
-        SeekBarListener myGreenListener = new SeekBarListener(greenText);
+        SeekBarListener myGreenListener = new SeekBarListener(this,greenText);
         greenSeekBar.setOnSeekBarChangeListener(myGreenListener);
-        SeekBarListener myBlueListener = new SeekBarListener(blueText);
+        SeekBarListener myBlueListener = new SeekBarListener(this,blueText);
         blueSeekBar.setOnSeekBarChangeListener(myBlueListener);
     }
     public myCustomPicture getMyPictureLayout()
@@ -99,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
     public void setBlueSeekBar(int i )
     {
         blueSeekBar.setProgress(i);
+    }
+    public void setCurrentShape(Shapes shape)
+    {
+        this.currentShape = shape;
+    }
+    public Shapes getCurrentShape()
+    {
+        return this.currentShape;
     }
 
 }
