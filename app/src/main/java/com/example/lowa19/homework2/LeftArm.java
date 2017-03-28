@@ -20,12 +20,14 @@ public class LeftArm extends Shapes {
     public void drawShape(Canvas canvas)
     {
         leftArm = new Path();
-        leftArm.moveTo(100, 150);
-        leftArm.lineTo(90, 185);
-        leftArm.moveTo(90, 185);
-        leftArm.lineTo(135, 185);
-        leftArm.moveTo(135, 185);
-        leftArm.lineTo(100, 150);
+        leftArm.setFillType(Path.FillType.EVEN_ODD);
+        leftArm.moveTo(225, 725);
+        leftArm.lineTo(371, 1079);
+        leftArm.moveTo(371, 1079);
+        leftArm.lineTo(175, 1079);
+        leftArm.moveTo(175, 1079);
+        leftArm.lineTo(225, 725);
+        leftArm.close();
         canvas.drawPath(leftArm, getShapePaint());
     }
 }

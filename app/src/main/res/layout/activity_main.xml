@@ -51,7 +51,8 @@
                 android:text="Red Value="
                 android:id="@+id/redText"
                 android:layout_gravity="center_vertical"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:paddingRight="100dp" />
 
             <SeekBar
                 android:layout_width="match_parent"
@@ -77,7 +78,8 @@
                 android:text="Blue Value"
                 android:id="@+id/greenText"
                 android:layout_gravity="center_vertical"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:paddingRight="100dp" />
 
             <SeekBar
                 android:layout_width="match_parent"
@@ -85,7 +87,8 @@
                 android:id="@+id/gSeekBar"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/white"
-                android:max="255" />
+                android:max="255"
+                android:paddingLeft="100dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,7 +106,8 @@
                 android:text="Green Value"
                 android:id="@+id/blueText"
                 android:layout_gravity="center_vertical"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:paddingRight="100dp" />
 
             <SeekBar
                 android:layout_width="match_parent"

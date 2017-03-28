@@ -8,10 +8,10 @@ import android.graphics.Paint;
  */
 
 public class Eyes extends Shapes {
-    private final int yCoor= 125;
-    private final int radius = 5;
-    private final int xLeft = 125;
-    private final int xRight = 175;
+    private final int yCoor= 475;
+    private final int radius = 50;
+    private final int xLeft = 475;
+    private final int xRight = 975;
 
     public Eyes(String initName, Paint initPaint) {
         super(initName, initPaint);

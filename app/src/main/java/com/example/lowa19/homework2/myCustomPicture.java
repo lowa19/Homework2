@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.util.AttributeSet;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.SeekBar;
@@ -23,17 +24,36 @@ public class myCustomPicture extends SurfaceView {
     private PenguinBody body;
     private RightFoot rightFoot;
     private LeftFoot leftFoot;
+    private int currShapeX, currShapeY;
     public Paint yellow_paintbrush_fill, white_paintbrush_fill, black_paintbrush_fill;
 
     public myCustomPicture(Context context) {
         super(context);
         setWillNotDraw(false);
+        currShapeX = -1;
+        currShapeY = -1;
+    }
+    public myCustomPicture(Context context, AttributeSet set)
+    {
+        super(context, set);
+        setWillNotDraw(false);
+        currShapeX = -1;
+        currShapeY = -1;
+    }
+    public myCustomPicture(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        setWillNotDraw(false);
+        currShapeX = -1;
+        currShapeY = -1;
     }
 
-
+    /**
+     *  This creates each shape object and draws them on the surface view
+     *  with initial colors created in this method as well
+     * @param canvas
+     */
     @Override
     public void onDraw(Canvas canvas) {
-        //create each initial paint
         yellow_paintbrush_fill = new Paint();
         yellow_paintbrush_fill.setColor(Color.YELLOW);
         yellow_paintbrush_fill.setStyle(Paint.Style.FILL);
@@ -44,7 +64,6 @@ public class myCustomPicture extends SurfaceView {
         white_paintbrush_fill.setColor(Color.WHITE);
         white_paintbrush_fill.setStyle(Paint.Style.FILL);
 
-        //create penguin's body parts and draw on the view
         body = new PenguinBody("Body", black_paintbrush_fill);
         body.drawShape(canvas);
         beak = new Beak("Beak", yellow_paintbrush_fill);
@@ -102,12 +121,45 @@ public class myCustomPicture extends SurfaceView {
             return null;
         }
     }
+
+    /**
+     * This method saves the coordinates of the latest touch event to reference the
+     * shape when changing color
+     * @param x touch event x coordinate
+     * @param y touch event y coordinate
+     */
+    public void setCurrentTouch(int x, int y)
+    {
+        this.currShapeX = x;
+        this.currShapeY = y;
+    }
+
+    /**
+     *  using the saved coordinates
+     * @return returns the shape corresponding to the latest touch event
+     */
+    public Shapes getCurrentShape()
+    {
+        if(currShapeX == -1 && currShapeY == -1)
+        {
+            Paint tempPaint = new Paint();
+            tempPaint.setColor(Color.WHITE);
+            Shapes temp = new Shapes("No shapes selected",tempPaint);
+         return temp;
+        }
+        return this.getShape(currShapeX, currShapeY);
+    }
+
+    /**
+     *The following methods check if a certain shape is touched given the x and y coordinates
+     * Slightly inaccurate because using rectangles to approximate click
+     */
     public boolean eyeTouch(int x, int y)
     {
-        int yCoor= 125;
-        int radius = 5;
-        int xLeft = 125;
-        int xRight = 175;
+        int yCoor= 475;
+        int radius = 50;
+        int xLeft = 475;
+        int xRight = 975;
 
         if(x>xLeft-radius && x<xLeft+radius && y>yCoor-radius && y<yCoor+radius)
         {
@@ -124,12 +176,12 @@ public class myCustomPicture extends SurfaceView {
     }
     public boolean beakTouch(int x, int y)
     {
-        int leftPointX = 145;
-        int rightPointX = 155;
-        int leftAndRightY = 145;
-        int middlePointXY = 160;
+        int leftPointX = 600;
+        int rightPointX = 850;
+        int leftAndRightY = 725;
+        int middlePointY = 800;
 
-        if(x>leftPointX && x<rightPointX && y>leftAndRightY && y<middlePointXY)
+        if(x>leftPointX && x<rightPointX && y>leftAndRightY && y<middlePointY)
         {
             return true;
         }
@@ -140,7 +192,11 @@ public class myCustomPicture extends SurfaceView {
     }
     public boolean leftArmTouch(int x, int y)
     {
-        if(x>90 && x<135 && y>150 && y<185)
+        int xMin = 175;
+        int xMax = 371;
+        int yMin = 725;
+        int yMax = 1079;
+        if(x>xMin && x<xMax && y>yMin && y<yMax)
         {
             return true;
         }
@@ -151,7 +207,12 @@ public class myCustomPicture extends SurfaceView {
     }
     public boolean rightArmTouch(int x, int y)
     {
-        if(x>185 && x<210 && y>150 && y<185)
+        int xMin = 1079;
+        int xMax = 1275;
+        int yMin = 725;
+        int yMax = 1079;
+
+        if(x>xMin && x<xMax && y>yMin && y<yMax)
         {
             return true;
         }
@@ -162,7 +223,12 @@ public class myCustomPicture extends SurfaceView {
     }
     public boolean leftFootTouch(int x, int y)
     {
-        if(x>120 && x<130 && y>195 && y<205)
+        int xMin = 475;
+        int xMax = 625;
+        int yMin = 1175;
+        int yMax = 1325;
+
+        if(x>xMin && x<xMax && y>yMin && y<yMax)
         {
             return true;
         }
@@ -173,7 +239,12 @@ public class myCustomPicture extends SurfaceView {
     }
     public boolean rightFootTouch(int x, int y)
     {
-        if(x>170 && x<180 && y>195 && y<205)
+        int xMin = 775;
+        int xMax = 975;
+        int yMin = 1175;
+        int yMax = 1325;
+
+        if(x>xMin && x<xMax && y>yMin && y<yMax)
         {
             return true;
         }
@@ -184,9 +255,9 @@ public class myCustomPicture extends SurfaceView {
     }
     public boolean bodyTouch(int x, int y) //check body last because bottom most layer on drawing
     {
-        int yCoor= 150;
-        int radius = 50;
-        int xCoor = 150;
+        int yCoor= 725;
+        int radius = 500;
+        int xCoor = 725;
         if(x>xCoor-radius && x<xCoor+radius && y>yCoor-radius && y<yCoor+radius)
         {
             return true;

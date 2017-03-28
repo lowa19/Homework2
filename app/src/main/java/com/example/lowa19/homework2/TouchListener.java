@@ -21,18 +21,23 @@ public class TouchListener implements View.OnTouchListener {
         int ycoor = (int)motionEvent.getY();
         int r,g,b;
         Shapes currentShape;
+        //get the shape corresponding to the touch
         currentShape = myActivity.getMyPictureLayout().getShape(xcoor,ycoor);
+        //get the RGB values of the current shape
         r = currentShape.getShapeRed();
         g = currentShape.getShapeGreen();
         b = currentShape.getShapeBlue();
+        //set the text views to the name of the selected shape and its RGB values
         myActivity.getSelectedElementText().setText(currentShape.getName()); //display name of body part tapped
         myActivity.getRedText().setText(Integer.toString(r));
         myActivity.getGreenText().setText(Integer.toString(g));
         myActivity.getBlueText().setText(Integer.toString(b));
+        //set the seek bars to the right positions
         myActivity.setRedSeekBar(r);
         myActivity.setGreenSeekBar(g);
         myActivity.setBlueSeekBar(b);
-        myActivity.setCurrentShape(myActivity.getMyPictureLayout().getShape(xcoor, ycoor), xcoor, ycoor);
+        //save the position touched for later reference
+        myActivity.getMyPictureLayout().setCurrentTouch(xcoor, ycoor);
         return false;
     }
 

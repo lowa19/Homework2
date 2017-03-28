@@ -14,14 +14,13 @@ public class MainActivity extends AppCompatActivity {
     myCustomPicture myPictureLayout; //surface view
     private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
     private TextView redText, greenText, blueText, selectedElement;
-    private Shapes currentShape;
-    private int currShapeX, currShapeY;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         myPictureLayout = new myCustomPicture(this);
+        setContentView(R.layout.activity_main);
 
         //get references to views on GUI
         redSeekBar = (SeekBar) findViewById(R.id.rSeekBar);
@@ -75,16 +74,6 @@ public class MainActivity extends AppCompatActivity {
     public void setBlueSeekBar(int i )
     {
         blueSeekBar.setProgress(i);
-    }
-    public void setCurrentShape(Shapes shape, int x, int y)
-    {
-        this.currShapeX = x;
-        this.currShapeY = y;
-        this.currentShape = shape;
-    }
-    public Shapes getCurrentShape()
-    {
-        return this.myPictureLayout.getShape(currShapeX, currShapeY);
     }
 
 }

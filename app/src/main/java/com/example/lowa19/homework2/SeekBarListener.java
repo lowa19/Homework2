@@ -17,31 +17,37 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
     public SeekBarListener(MainActivity activity, TextView initText)
     {
         this.myText = initText;
-        currentShape = activity.getCurrentShape();
+        currentShape = activity.getMyPictureLayout().getCurrentShape();
         myActivity = activity;
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b)
     {
-        if(seekBar.getId() == R.id.rSeekBar) {
+        if(seekBar.getId() == R.id.rSeekBar)
+        {
+            //create a temporary paint
             changedPaint = new Paint();
+            //set the paint to the changed seekbar value
             changedPaint.setARGB(255, i, currentShape.getShapeGreen(), currentShape.getShapeBlue());
-            myActivity.getCurrentShape().setShapePaint(changedPaint);
+            changedPaint.setStyle(Paint.Style.FILL);
+            //sets the shape to the new paint and the textview to new value
+            myActivity.getMyPictureLayout().getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Red Value = " + i);
+            //redraw the surfaceview
             myActivity.getMyPictureLayout().invalidate();
         }
         else if(seekBar.getId() == R.id.gSeekBar) {
             changedPaint = new Paint();
             changedPaint.setARGB(255, currentShape.getShapeRed(), i, currentShape.getShapeBlue());
-            myActivity.getCurrentShape().setShapePaint(changedPaint);
+            myActivity.getMyPictureLayout().getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Green Value = " + i);
             myActivity.getMyPictureLayout().invalidate();
         }
         else if(seekBar.getId() == R.id.bSeekBar) {
             changedPaint = new Paint();
             changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen(), i);
-            myActivity.getCurrentShape().setShapePaint(changedPaint);
+            myActivity.myPictureLayout.getCurrentShape().setShapePaint(changedPaint);
             myText.setText("Blue Value = " + i);
             myActivity.getMyPictureLayout().invalidate();
         }

@@ -23,12 +23,14 @@ public class Beak extends Shapes {
     public void drawShape(Canvas canvas)
     {
         nose = new Path();
-        nose.moveTo(145, 145);
-        nose.lineTo(155, 145);
-        nose.moveTo(155, 145);
-        nose.lineTo(160, 160);
-        nose.moveTo(160, 160);
-        nose.lineTo(145, 145);
-        canvas.drawPath(nose, getShapePaint());
+        nose.setFillType(Path.FillType.EVEN_ODD);
+        nose.moveTo(600, 725);
+        nose.lineTo(850, 725);
+        nose.moveTo(850, 725);
+        nose.lineTo(725, 850);
+        nose.moveTo(725, 850);
+        nose.lineTo(600, 725);
+        nose.close();
+        canvas.drawPath(nose, this.getShapePaint());
     }
 }

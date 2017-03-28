@@ -9,7 +9,6 @@ import android.graphics.Path;
  */
 
 public class RightFoot extends Shapes {
-    Path rightFoot;
 
     public RightFoot(String initName, Paint initPaint) {
         super(initName, initPaint);
@@ -18,14 +17,7 @@ public class RightFoot extends Shapes {
     @Override
     public void drawShape(Canvas canvas)
     {
-        rightFoot = new Path();
-        rightFoot.moveTo(170, 195);
-        rightFoot.lineTo(180, 195);
-        rightFoot.moveTo(180, 195);
-        rightFoot.lineTo(155, 205);
-        rightFoot.moveTo(155, 205);
-        rightFoot.lineTo(170, 195);
-        canvas.drawPath(rightFoot, getShapePaint());
+        canvas.drawRect(775,1125,975,1325, getShapePaint());
     }
 
 }
