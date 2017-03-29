@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myPictureLayout = (myCustomPicture) findViewById(R.id.surfaceView);
 
         //get references to views on GUI
+        myPictureLayout = (myCustomPicture) findViewById(R.id.surfaceView);
         redSeekBar = (SeekBar) findViewById(R.id.rSeekBar);
         redText = (TextView) findViewById(R.id.redText);
         greenSeekBar = (SeekBar)findViewById(R.id.gSeekBar);

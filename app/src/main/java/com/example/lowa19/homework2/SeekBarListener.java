@@ -17,9 +17,16 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
     public SeekBarListener(MainActivity activity, TextView initText)
     {
         this.myText = initText;
-        myActivity = activity;
+        this.myActivity = activity;
     }
 
+    /**
+     * This method sets the color of the current selected shape to
+     * a new color made from changing a value in the existing RGB
+     * @param seekBar
+     * @param i
+     * @param b
+     */
     @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b)
     {

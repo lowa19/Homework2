@@ -48,8 +48,6 @@ public class myCustomPicture extends SurfaceView {
         currShapeX = -1;
         currShapeY = -1;
     }
-
-
     /**
      *  This creates each shape object and draws them on the surface view
      *  with initial colors created in this method as well
@@ -85,7 +83,6 @@ public class myCustomPicture extends SurfaceView {
         innerEyes.drawShape(canvas);
 
     }
-
     /**
      *
      * @param x x coordinate from touch event
