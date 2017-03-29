@@ -19,6 +19,7 @@ public class myCustomPicture extends SurfaceView {
 
     private Beak beak;
     private Eyes eyes;
+    private Retina innerEyes;
     private LeftArm leftArm;
     private RightArm rightArm;
     private PenguinBody body;
@@ -33,19 +34,21 @@ public class myCustomPicture extends SurfaceView {
         currShapeX = -1;
         currShapeY = -1;
     }
-    public myCustomPicture(Context context, AttributeSet set)
+    public myCustomPicture(Context context, AttributeSet attributeSet)
     {
-        super(context, set);
+        super(context, attributeSet);
         setWillNotDraw(false);
         currShapeX = -1;
         currShapeY = -1;
     }
-    public myCustomPicture(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public myCustomPicture(Context context, AttributeSet attributeSet, int i)
+    {
+        super(context, attributeSet, i);
         setWillNotDraw(false);
         currShapeX = -1;
         currShapeY = -1;
     }
+
 
     /**
      *  This creates each shape object and draws them on the surface view
@@ -66,8 +69,6 @@ public class myCustomPicture extends SurfaceView {
 
         body = new PenguinBody("Body", black_paintbrush_fill);
         body.drawShape(canvas);
-        beak = new Beak("Beak", yellow_paintbrush_fill);
-        beak.drawShape(canvas);
         eyes = new Eyes("Eyes", white_paintbrush_fill);
         eyes.drawShape(canvas);
         leftArm = new LeftArm("Left Arm", black_paintbrush_fill);
@@ -78,6 +79,11 @@ public class myCustomPicture extends SurfaceView {
         leftFoot.drawShape(canvas);
         rightFoot = new RightFoot("Right Foot", yellow_paintbrush_fill);
         rightFoot.drawShape(canvas);
+        beak = new Beak("Beak", yellow_paintbrush_fill);
+        beak.drawShape(canvas);
+        innerEyes = new Retina("Eyes", black_paintbrush_fill); //retinas for aesthetics, never modified
+        innerEyes.drawShape(canvas);
+
     }
 
     /**
@@ -116,9 +122,12 @@ public class myCustomPicture extends SurfaceView {
         {
             return this.body;
         }
-        else
+        else //if background click, return null shape
         {
-            return null;
+            Paint tempPaint = new Paint();
+            tempPaint.setColor(Color.WHITE);
+            Shapes temp = new Shapes("No shapes selected",tempPaint);
+            return temp;
         }
     }
 
@@ -253,7 +262,7 @@ public class myCustomPicture extends SurfaceView {
             return false;
         }
     }
-    public boolean bodyTouch(int x, int y) //check body last because bottom most layer on drawing
+    public boolean bodyTouch(int x, int y)
     {
         int yCoor= 725;
         int radius = 500;

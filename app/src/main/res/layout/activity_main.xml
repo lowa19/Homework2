@@ -42,13 +42,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/redRow"
-            android:background="@android:color/holo_red_light">
+            android:background="@android:color/holo_red_light"
+            android:paddingLeft="25dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Red Value="
+                android:text="Red Value"
                 android:id="@+id/redText"
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white"
@@ -69,13 +70,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/greenRow"
-            android:background="@android:color/holo_blue_light">
+            android:background="@android:color/holo_green_light"
+            android:paddingLeft="25dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Blue Value"
+                android:text="Green Value"
                 android:id="@+id/greenText"
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white"
@@ -93,17 +95,18 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/blueRow"
-            android:background="@android:color/holo_green_light">
+            android:background="@android:color/holo_blue_bright"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Green Value"
+                android:text="Blue Value"
                 android:id="@+id/blueText"
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white"

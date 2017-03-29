@@ -26,9 +26,9 @@ public class Beak extends Shapes {
         nose.setFillType(Path.FillType.EVEN_ODD);
         nose.moveTo(600, 725);
         nose.lineTo(850, 725);
-        nose.moveTo(850, 725);
+        //nose.moveTo(850, 725);
         nose.lineTo(725, 850);
-        nose.moveTo(725, 850);
+        //nose.moveTo(725, 850);
         nose.lineTo(600, 725);
         nose.close();
         canvas.drawPath(nose, this.getShapePaint());

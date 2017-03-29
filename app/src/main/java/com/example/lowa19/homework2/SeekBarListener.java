@@ -17,41 +17,41 @@ public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
     public SeekBarListener(MainActivity activity, TextView initText)
     {
         this.myText = initText;
-        currentShape = activity.getMyPictureLayout().getCurrentShape();
         myActivity = activity;
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int i, boolean b)
     {
+        currentShape = myActivity.getMyPictureLayout().getCurrentShape();
         if(seekBar.getId() == R.id.rSeekBar)
         {
             //create a temporary paint
             changedPaint = new Paint();
             //set the paint to the changed seekbar value
-            changedPaint.setARGB(255, i, currentShape.getShapeGreen(), currentShape.getShapeBlue());
+            changedPaint.setColor(Color.rgb(seekBar.getProgress(), currentShape.getShapeGreen(), currentShape.getShapeBlue()));
+            //changedPaint.setARGB(255, i, currentShape.getShapeGreen(), currentShape.getShapeBlue());
             changedPaint.setStyle(Paint.Style.FILL);
             //sets the shape to the new paint and the textview to new value
-            myActivity.getMyPictureLayout().getCurrentShape().setShapePaint(changedPaint);
+            currentShape.setShapePaint(changedPaint);
             myText.setText("Red Value = " + i);
-            //redraw the surfaceview
-            myActivity.getMyPictureLayout().invalidate();
-        }
-        else if(seekBar.getId() == R.id.gSeekBar) {
-            changedPaint = new Paint();
-            changedPaint.setARGB(255, currentShape.getShapeRed(), i, currentShape.getShapeBlue());
-            myActivity.getMyPictureLayout().getCurrentShape().setShapePaint(changedPaint);
-            myText.setText("Green Value = " + i);
-            myActivity.getMyPictureLayout().invalidate();
         }
         else if(seekBar.getId() == R.id.bSeekBar) {
             changedPaint = new Paint();
-            changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen(), i);
-            myActivity.myPictureLayout.getCurrentShape().setShapePaint(changedPaint);
+            changedPaint.setColor(Color.rgb(currentShape.getShapeRed(), currentShape.getShapeGreen(), seekBar.getProgress()));
+            //changedPaint.setARGB(255, currentShape.getShapeRed(), currentShape.getShapeGreen(), i);
+            currentShape.setShapePaint(changedPaint);
             myText.setText("Blue Value = " + i);
-            myActivity.getMyPictureLayout().invalidate();
         }
-
+        else if(seekBar.getId() == R.id.gSeekBar) {
+            changedPaint = new Paint();
+            changedPaint.setColor(Color.rgb(currentShape.getShapeRed(), seekBar.getProgress(), currentShape.getShapeBlue()));
+            //changedPaint.setARGB(255, currentShape.getShapeRed(), i, currentShape.getShapeBlue());
+            changedPaint.setStyle(Paint.Style.FILL);
+            currentShape.setShapePaint(changedPaint);
+            myText.setText("Green Value = " + i);
+        }
+        myActivity.getMyPictureLayout().invalidate();
     }
 
     @Override

@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        myPictureLayout = new myCustomPicture(this);
         setContentView(R.layout.activity_main);
+        myPictureLayout = (myCustomPicture) findViewById(R.id.surfaceView);
 
         //get references to views on GUI
         redSeekBar = (SeekBar) findViewById(R.id.rSeekBar);

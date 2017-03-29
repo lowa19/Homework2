@@ -22,9 +22,9 @@ public class RightArm extends Shapes {
         rightArm.setFillType(Path.FillType.EVEN_ODD);
         rightArm.moveTo(1225, 725);
         rightArm.lineTo(1079, 1079);
-        rightArm.moveTo(1079, 1079);
+        //rightArm.moveTo(1079, 1079);
         rightArm.lineTo(1275, 1079);
-        rightArm.moveTo(1275, 1079);
+        //rightArm.moveTo(1275, 1079);
         rightArm.lineTo(1225, 725);
         rightArm.close();
         canvas.drawPath(rightArm, getShapePaint());

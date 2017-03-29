@@ -23,9 +23,9 @@ public class LeftArm extends Shapes {
         leftArm.setFillType(Path.FillType.EVEN_ODD);
         leftArm.moveTo(225, 725);
         leftArm.lineTo(371, 1079);
-        leftArm.moveTo(371, 1079);
+       // leftArm.moveTo(371, 1079);
         leftArm.lineTo(175, 1079);
-        leftArm.moveTo(175, 1079);
+      //  leftArm.moveTo(175, 1079);
         leftArm.lineTo(225, 725);
         leftArm.close();
         canvas.drawPath(leftArm, getShapePaint());
